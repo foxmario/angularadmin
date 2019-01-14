@@ -1,0 +1,19 @@
+{
+  "name": "ng-layer",
+  "version": "1.1.3",
+  "main": "ng-layer.js",
+  "homepage": "https://github.com/think2011/ng-layer",
+  "authors": [
+    "think2011 <452125301@qq.com>"
+  ],
+  "description": "对layer的angular封装，同时增加异步载入content的功能",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

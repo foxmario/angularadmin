@@ -1,0 +1,50 @@
+<ol class="breadcrumb">
+  <li><a ui-sref="home.page1">主页</a></li>
+  <li>修改密码</li>
+</ol>
+<div class="main-panel">
+    <div class="main-panel-body">
+        <form class="form-horizontal" name="changeForm" novalidate ng-submit="changePassword(user)">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">用户名</label>
+                <div class="col-sm-6 col-xs-12">
+                    <input type="text" class="form-control" ng-model="user.uname" ng-disabled="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">旧密码</label>
+                <div class="col-sm-6 col-xs-12">
+                    <input type="password" class="form-control" ng-model="user.password" name="password" required ng-focus autocomplete="off">
+                </div>
+                <div class="form-error" ng-show="(changeForm.password.$dirty && !changeForm.password.$focused) || (changeForm.password.$dirty && submitted )" ng-cloak style="color:red"> <span ng-show="changeForm.password.$error.required">登录密码不能为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">新密码</label>
+                <div class="col-sm-6 col-xs-12">
+                    <input type="password" class="form-control" ng-model="user.newPassword" ng-minlength="6" ng-maxlength="16" required ng-focus ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" id="newPassword" name="newPassword" autocomplete="off">
+                </div>
+                <div class="form-error" ng-show="(changeForm.newPassword.$invalid && changeForm.newPassword.$dirty && !changeForm.newPassword.$focused) || (changeForm.newPassword.$invalid && submitted)" ng-cloak style="color:red">
+                    <span ng-show="changeForm.newPassword.$error.minlength">密码不能少于6位</span>
+                    <span ng-show="changeForm.newPassword.$error.pattern">密码必须由数字和字母组成</span>
+                    <span ng-show="changeForm.newPassword.$error.required">密码不能为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">重复密码</label>
+                <div class="col-sm-6 col-xs-12">
+                    <input type="password" class="form-control" ng-model="user.password_again" required ng-focus name="password_again" pw-check="newPassword" autocomplete="off">
+                </div>
+                <div class="form-error" ng-show="(changeForm.password_again.$invalid && changeForm.password_again.$dirty && changeForm.password_again.$focused) || (changeForm.password_again.$invalid && submitted)" ng-cloak style="color:red">
+                    <span ng-show="changeForm.password_again.$error.required">密码不能为空</span>
+                    <span ng-show="changeForm.password_again.$error.pwmatch&&!changeForm.password_again.$error.required">两次密码不一样</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-sm-6 col-sm-offset-3">
+                    <button type="submit" class="btn btn-primary">保存设置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

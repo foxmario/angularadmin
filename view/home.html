@@ -1,0 +1,55 @@
+<div class="main-layout" id='main-layout'>
+    <div class="main-layout-side">
+        <div class="m-logo">i-Know</div>
+        <ul class="side-menu">
+            <li class="side-menu-item"><a ui-sref="home.page1"><i class="icon-home"></i>主页</a></li>
+            <li class="side-menu-item"><a ><i class="icon-desktop"></i>菜单二</a>
+            </li>
+            <li class="side-menu-item">
+                <a><i class="icon-bar-chart"></i>菜单三<span class="side-menu-more"></span></a>
+                <ul class="children-menu">
+                    <li class="children-menu-item"><a ui-sref="home.page2"><i class="icon-minus"></i>菜单四</a></li>
+                    <li class="children-menu-item"><a href=""><i class="icon-minus"></i>菜单四</a></li>
+                    <li class="children-menu-item"><a href=""><i class="icon-minus"></i>菜单四</a></li>
+                </ul>
+            </li>
+            <li class="side-menu-item">
+                <a><i class="icon-signal"></i>菜单三<span class="side-menu-more"></span></a>
+                <ul class="children-menu">
+                    <li class="children-menu-item"><a href=""><i class="icon-minus"></i>菜单四</a></li>
+                </ul>
+            </li>
+            <li class="side-menu-item"></li>
+        </ul>
+    </div>
+    <div class="main-layout-container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="javascript:void(0);" id="hideBtn"><i class="icon-reorder"></i></a>
+            </div>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown" uib-dropdown is-open="status.isopen">
+                            <a herf="javascript:void(0);" id="single-button" class="dropdown-toggle" uib-dropdown-toggle="" ng-disabled="disabled" aria-haspopup="true" aria-expanded="false" role="button">用户信息<span class="caret"></span>
+                        </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                <li role="menuitem"><a ui-sref="home.modify">修改密码</a></li>
+                                <li role="menuitem"><a href="javascript:void(0);" ng-click="logout()">退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="main-layout-body">
+            <div class="main-layout-content" ng-class="{'loading': loading}">
+                <div ng-show="loading" class="loading-contenter">
+                    <i class="icon-spinner icon-spin"></i>
+                </div>
+                <ui-view class="main-layout-show"></ui-view>
+            </div>
+        </div>
+    </div>
+    <div class="main-mask"></div>
+</div>

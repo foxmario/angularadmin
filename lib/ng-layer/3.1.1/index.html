@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <title>Title</title>
+</head>
+
+<body ng-controller="appCtrl">
+    <button ng-click="alert()">验证帐号</button>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/layer-v3.1.1/layer/layer.js"></script>
+    <script src="ng-layer.js"></script>
+    <script>
+    var app = angular.module('app', ['ng-layer']);
+    app.controller('appCtrl', function($scope, layer) {
+        // controller as 调用方法
+
+
+
+        $scope.alert = function() {
+            // layer.msg('玩命卖萌中', { icon: 5 }, function() {
+            //     //关闭后的操作
+            // });
+            layer.msg('内容',{time:2000, shift: 6,icon: 5},function(){});
+        }
+
+        // layer.msg('不开心。。', {icon: 5});
+        //信息框-例5
+
+        layer.msg('帐号或密码错误',{time:5000, shift: 6,icon: 5},function(){});
+    })
+    app.controller('layerCtrl', function() {
+        this.hello = 'hello world!';
+    })
+    </script>
+</body>
+
+</html>
